@@ -27,7 +27,35 @@ object Main {
   /**
    * Exercise 2
    */
-    def balance(chars: List[Char]): Boolean = ???
+    def balance(chars: List[Char]): Boolean = {
+      import scala.collection.mutable.Stack
+
+      def processChar(parenthesses: Stack[Char], string: List[Char]): Boolean = {
+        //if we are on the end on the string the stack must be empty
+        if (string.isEmpty) {
+          parenthesses.isEmpty
+        } else {
+
+          //else process the first character
+          //if it is '(' add it to stack
+          //if it is ')' remove one element from the stack
+          val character = string.head;
+          if (character.equals('(')) {
+            parenthesses.push('(');
+          } else if (character.equals(')')) {
+            //if the stack is empty there is no matching '('
+            if (parenthesses.isEmpty) {
+              return false
+            } else {
+              parenthesses.pop();
+            }
+          }
+          processChar(parenthesses, string.tail);
+        }
+      }
+
+      processChar(Stack[Char](), chars)
+    }
   
   /**
    * Exercise 3
