@@ -60,5 +60,19 @@ object Main {
   /**
    * Exercise 3
    */
-    def countChange(money: Int, coins: List[Int]): Int = ???
+    def countChange(money: Int, coins: List[Int]): Int = {
+      var count = 0
+      if (coins.isEmpty || money < 0) {
+        return count
+      }
+      if (money == 0)
+        count += 1
+      else {
+        val coin = coins.head
+        count += countChange(money - coin, coins)
+        count += countChange(money - coin, coins.tail)
+      }
+
+      count
+    }
   }
