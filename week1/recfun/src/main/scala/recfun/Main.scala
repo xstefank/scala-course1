@@ -61,18 +61,14 @@ object Main {
    * Exercise 3
    */
     def countChange(money: Int, coins: List[Int]): Int = {
-      var count = 0
-      if (coins.isEmpty || money < 0) {
-        return count
+      if (money == 0) {
+        //we made the exact number from coins - valid option
+        1
+      } else if (!coins.isEmpty && money > 0) {
+        //still have some money and some coins left
+        countChange(money - coins.head, coins) + countChange(money, coins.tail)
+      } else {
+        0
       }
-      if (money == 0)
-        count += 1
-      else {
-        val coin = coins.head
-        count += countChange(money - coin, coins)
-        count += countChange(money - coin, coins.tail)
-      }
-
-      count
     }
   }
