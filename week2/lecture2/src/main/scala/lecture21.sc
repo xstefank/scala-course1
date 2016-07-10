@@ -1,4 +1,4 @@
-object lecture2 {
+object lecture21 {
   def sum(f: Int => Int)(a: Int, b: Int): Int = {
     def loop(a: Int, acc: Int): Int = {
       if (a > b) acc
