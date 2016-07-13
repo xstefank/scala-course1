@@ -149,4 +149,15 @@ class FunSetSuite extends FunSuite {
       assert(exists(filter(s5, (x: Int) => x == 2), (x: Int) => x == 2) === true)
     }
   }
+
+  test("map is working properly") {
+    new TestSets {
+      val s = map(s5, (x: Int) => x * 2)
+      assert(contains(s, 2) === true)
+      assert(contains(s, 4) === true)
+      assert(contains(s, 1) === false)
+      assert(contains(s, 3) === false)
+      assert(contains(s, 5) === false)
+    }
+  }
 }
