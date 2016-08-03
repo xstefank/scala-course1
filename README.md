@@ -1,2 +1,3 @@
 # scala-course1
-work materials for the Coursera course dedicated to Scala
+work material for the Coursera course dedicated to Scala
+
