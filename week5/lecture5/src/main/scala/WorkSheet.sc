@@ -38,4 +38,16 @@ object WorkSheet {
 
   val nums = List(2, -4, 5, 7, 1)
   msort(nums)
+
+  def squareList1(xs: List[Int]): List[Int] =
+    xs match {
+      case Nil => xs
+      case y :: ys => (y * y) :: squareList1(ys)
+    }
+
+  def squareList2(xs: List[Int]): List[Int] =
+    xs map (x => x * x)
+
+  squareList1(List(1, 2, 3))
+  squareList2(List(1, 2, 3))
 }
